@@ -5,11 +5,12 @@ namespace GifWaller
 {
     public partial class UI
     {
-        bool running = false;
+        bool Running = false;
 
-        private Form waller;
-        private PictureBox pbox;
-        private OpenFileDialog fileDialog = new OpenFileDialog()
+        Settings Setting = new Settings();
+        private Form Waller;
+        private PictureBox PBox;
+        private OpenFileDialog FileDialog = new OpenFileDialog()
         {
             InitialDirectory = @"C:\",
             Title = "Open A GIF File",
@@ -22,32 +23,32 @@ namespace GifWaller
             RestoreDirectory = false
         };
 
-        
+
         /*          SETTINGS            */
         //image posi
-        private int CurrPosiX = 0;
-        private int CurrPosiY = 0;
+        internal static int CurrPosiX = 0;
+        internal static int CurrPosiY = 0;
 
         //image padding (generally, 1px required)
         //A red outline (form background) might show up on weird resolutions. That's when you need to configure padding.
-        private byte padW = 1;
-        private byte padH = 1;
+        internal static byte PadH = 1;
+        internal static byte PadW = 1;
 
         //image move snapping
-        private byte snapf = 1;
+        internal static byte Snapf = 1;
 
         //image reso
-        private byte scrID = 1;
+        internal static byte ScrID = 1;
 
         //gif path
-        private string file = string.Empty;
+        internal static string File = string.Empty;
         /*          SETTINGS            */
 
-        private bool receive_file()
+        private bool Receive_File()
         {
-            if (fileDialog.ShowDialog() == DialogResult.OK)
+            if (FileDialog.ShowDialog() == DialogResult.OK)
             {
-                file = fileDialog.FileName;
+                File = FileDialog.FileName;
 
                 Activate();
 
@@ -61,40 +62,40 @@ namespace GifWaller
             }
         }
 
-        private bool start()
+        private bool Start()
         {
-            if (string.IsNullOrEmpty(file))
-                if (!receive_file()) return false;
+            if (string.IsNullOrEmpty(File))
+                if (!Receive_File()) return false;
 
-            if (!running)
+            if (!Running)
             {
-                waller = new Form
+                Waller = new Form
                 {
                     FormBorderStyle = FormBorderStyle.None,
                     StartPosition = FormStartPosition.Manual,            //0 = big; 1 = small.
                     Location = new Point(CurrPosiX, CurrPosiY),
-                    Size = new Size(Screen.AllScreens[scrID - 1].WorkingArea.Size.Width, Screen.AllScreens[scrID - 1].WorkingArea.Size.Height)
+                    Size = new Size(Screen.AllScreens[ScrID - 1].WorkingArea.Size.Width, Screen.AllScreens[ScrID - 1].WorkingArea.Size.Height)
                 };
 
-                pbox = new PictureBox
+                PBox = new PictureBox
                 {
-                    Image = Image.FromFile(file),
+                    Image = Image.FromFile(File),
                     BorderStyle = BorderStyle.None,
                     Location = new Point(0, 0),
                     Padding = new Padding(0),
                     BackColor = Color.Red,
-                    Size = new Size(Screen.AllScreens[scrID - 1].WorkingArea.Size.Width + padW, Screen.AllScreens[scrID - 1].WorkingArea.Size.Height + padH),
+                    Size = new Size(Screen.AllScreens[ScrID - 1].WorkingArea.Size.Width + PadW, Screen.AllScreens[ScrID - 1].WorkingArea.Size.Height + PadH),
                     SizeMode = PictureBoxSizeMode.StretchImage,
                 };
 
-                pbox_prev.Image = Image.FromFile(file);
+                pbox_prev.Image = Image.FromFile(File);
 
-                running = true;
+                Running = true;
 
-                waller.Controls.Add(pbox);
-                WINAPI.SetParent(waller.Handle, Engine.WorkerW);    //set parent handle to WorkerW
+                Waller.Controls.Add(PBox);
+                WINAPI.SetParent(Waller.Handle, Engine.WorkerW);    //set parent handle to WorkerW
 
-                waller.Show();
+                Waller.Show();
 
                 return true;
             }
@@ -102,25 +103,25 @@ namespace GifWaller
             return false;
         }
 
-        private void stop()
+        private void Stop()
         {
-            if (running)
+            if (Running)
             {
-                running = false;
+                Running = false;
 
-                pbox.Dispose();
-                waller.Dispose();
+                PBox.Dispose();
+                Waller.Dispose();
 
                 ReDrawDesktop();
             }
         }
 
-        private void restart()
+        private void Restart()
         {
-            if (running)
+            if (Running)
             {
-                stop();
-                start();
+                Stop();
+                Start();
             }
         }
 

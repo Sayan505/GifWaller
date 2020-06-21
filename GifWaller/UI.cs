@@ -63,7 +63,7 @@ namespace GifWaller
 
         private void show()
         {
-            if (!string.IsNullOrEmpty(file)) pbox_prev.Image = Image.FromFile(file);
+            if (!string.IsNullOrEmpty(File)) pbox_prev.Image = Image.FromFile(File);
             pbox_prev.Show();
 
             Show();
@@ -72,14 +72,14 @@ namespace GifWaller
 
         private void EXIT(object sender, FormClosingEventArgs e)
         {
-            stop();
+            Stop();
         }
 
         private void PowerBtn_Click(object sender, EventArgs e)
         {
-            if (!running)
+            if (!Running)
             {
-                if (start())
+                if (Start())
                 {
                     PowerBtn.Text = "✔";                    //haha unicode emoji go brrrr
                     PowerBtn.ForeColor = Color.SpringGreen;
@@ -89,9 +89,9 @@ namespace GifWaller
                     return;
                 }
             }
-            if (running)
+            if (Running)
             {
-                stop();
+                Stop();
 
                 PowerBtn.Text = "❌";
                 PowerBtn.ForeColor = Color.Crimson;
@@ -104,28 +104,28 @@ namespace GifWaller
 
         private void BtnPosiUp_Click(object sender, EventArgs e)
         {
-            if (running) waller.SetDesktopLocation(CurrPosiX, CurrPosiY -= snapf);
+            if (Running) Waller.SetDesktopLocation(CurrPosiX, CurrPosiY -= Snapf);
 
             ReDrawDesktop();
         }
 
         private void BtnPosiLeft_Click(object sender, EventArgs e)
         {
-            if (running) waller.SetDesktopLocation(CurrPosiX -= snapf, CurrPosiY);
+            if (Running) Waller.SetDesktopLocation(CurrPosiX -= Snapf, CurrPosiY);
 
             ReDrawDesktop();
         }
 
         private void BtnPosiRight_Click(object sender, EventArgs e)
         {
-            if (running) waller.SetDesktopLocation(CurrPosiX += snapf, CurrPosiY);
+            if (Running) Waller.SetDesktopLocation(CurrPosiX += Snapf, CurrPosiY);
 
             ReDrawDesktop();
         }
 
         private void BtnPosiDown_Click(object sender, EventArgs e)
         {
-            if (running) waller.SetDesktopLocation(CurrPosiX, CurrPosiY += snapf);
+            if (Running) Waller.SetDesktopLocation(CurrPosiX, CurrPosiY += Snapf);
 
             ReDrawDesktop();
         }
@@ -144,12 +144,12 @@ namespace GifWaller
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (byte.TryParse(TextBox_PosiSnap.Text, out snapf)) { }
+                if (byte.TryParse(TextBox_PosiSnap.Text, out Snapf)) { }
 
                 else
                 {
                     TextBox_PosiSnap.Text = "1";
-                    snapf = 1;
+                    Snapf = 1;
                 }
 
                 TextBox_PosiSnap.BackColor = Color.GhostWhite;
@@ -171,17 +171,17 @@ namespace GifWaller
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (byte.TryParse(TextBox_ScrID.Text, out scrID) && scrID > 0 && scrID <= Screen.AllScreens.Length)
+                if (byte.TryParse(TextBox_ScrID.Text, out ScrID) && ScrID > 0 && ScrID <= Screen.AllScreens.Length)
                 {
-                    restart();
+                    Restart();
                 }
 
                 else
                 {
                     TextBox_ScrID.Text = "1";
-                    scrID = 1;
+                    ScrID = 1;
 
-                    restart();
+                    Restart();
                 }
 
                 TextBox_ScrID.BackColor = Color.GhostWhite;
@@ -198,17 +198,17 @@ namespace GifWaller
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (byte.TryParse(Text_Box_PaddingH.Text, out padH))
+                if (byte.TryParse(Text_Box_PaddingH.Text, out PadH))
                 {
-                    restart();
+                    Restart();
                 }
 
                 else
                 {
                     Text_Box_PaddingH.Text = "1";
-                    padH = 1;
+                    PadH = 1;
 
-                    restart();
+                    Restart();
                 }
 
                 Text_Box_PaddingH.BackColor = Color.GhostWhite;
@@ -224,17 +224,17 @@ namespace GifWaller
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (byte.TryParse(Text_Box_PaddingW.Text, out padW))
+                if (byte.TryParse(Text_Box_PaddingW.Text, out PadW))
                 {
-                    restart();
+                    Restart();
                 }
 
                 else
                 {
                     Text_Box_PaddingW.Text = "1";
-                    padW = 1;
+                    PadW = 1;
 
-                    restart();
+                    Restart();
                 }
 
                 Text_Box_PaddingW.BackColor = Color.GhostWhite;
@@ -243,12 +243,17 @@ namespace GifWaller
 
         private void pbox_prev_Click(object sender, EventArgs e)
         {
-            if (receive_file())
+            if (Receive_File())
             {
-                pbox_prev.Image = Image.FromFile(file);
+                pbox_prev.Image = Image.FromFile(File);
 
-                if (running) pbox.Image = Image.FromFile(file);
+                if (Running) PBox.Image = Image.FromFile(File);
             }
+        }
+
+        private void BtnSettings_Click(object sender, EventArgs e)
+        {
+            Setting.ShowDialog();
         }
     }
 }

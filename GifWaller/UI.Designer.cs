@@ -290,6 +290,7 @@
             this.BtnSettings.Text = "⛭";
             this.TT.SetToolTip(this.BtnSettings, "Settings");
             this.BtnSettings.UseVisualStyleBackColor = false;
+            this.BtnSettings.Click += new System.EventHandler(this.BtnSettings_Click);
             // 
             // pbox_prev
             // 
