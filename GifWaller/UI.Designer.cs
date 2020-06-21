@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.HTCAPTION = new System.Windows.Forms.Panel();
             this.BtnHide = new System.Windows.Forms.Button();
             this.BtnX = new System.Windows.Forms.Button();
@@ -46,6 +47,7 @@
             this.Label_W = new System.Windows.Forms.Label();
             this.BtnSettings = new System.Windows.Forms.Button();
             this.pbox_prev = new System.Windows.Forms.PictureBox();
+            this.TT_StartStop = new System.Windows.Forms.ToolTip(this.components);
             this.HTCAPTION.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_prev)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +76,7 @@
             this.BtnHide.TabIndex = 7;
             this.BtnHide.TabStop = false;
             this.BtnHide.Text = "🗕";
+            this.TT_StartStop.SetToolTip(this.BtnHide, "Hide to System Tray");
             this.BtnHide.UseVisualStyleBackColor = false;
             this.BtnHide.Click += new System.EventHandler(this.BtnHide_Click);
             // 
@@ -91,6 +94,7 @@
             this.BtnX.TabIndex = 6;
             this.BtnX.TabStop = false;
             this.BtnX.Text = "❌";
+            this.TT_StartStop.SetToolTip(this.BtnX, "Close");
             this.BtnX.UseVisualStyleBackColor = false;
             this.BtnX.Click += new System.EventHandler(this.BtnX_Click);
             // 
@@ -107,6 +111,7 @@
             this.PowerBtn.Size = new System.Drawing.Size(300, 185);
             this.PowerBtn.TabIndex = 1;
             this.PowerBtn.Text = "❌";
+            this.TT_StartStop.SetToolTip(this.PowerBtn, "Start/Stop");
             this.PowerBtn.UseVisualStyleBackColor = false;
             this.PowerBtn.Click += new System.EventHandler(this.PowerBtn_Click);
             // 
@@ -120,6 +125,7 @@
             this.BtnPosiLeft.Size = new System.Drawing.Size(35, 35);
             this.BtnPosiLeft.TabIndex = 2;
             this.BtnPosiLeft.Text = "←";
+            this.TT_StartStop.SetToolTip(this.BtnPosiLeft, "Move Picture left by given px");
             this.BtnPosiLeft.UseVisualStyleBackColor = true;
             this.BtnPosiLeft.Click += new System.EventHandler(this.BtnPosiLeft_Click);
             // 
@@ -133,6 +139,7 @@
             this.BtnPosiDown.Size = new System.Drawing.Size(35, 35);
             this.BtnPosiDown.TabIndex = 3;
             this.BtnPosiDown.Text = "↓";
+            this.TT_StartStop.SetToolTip(this.BtnPosiDown, "Move Picture down by given px");
             this.BtnPosiDown.UseVisualStyleBackColor = true;
             this.BtnPosiDown.Click += new System.EventHandler(this.BtnPosiDown_Click);
             // 
@@ -146,6 +153,7 @@
             this.BtnPosiRight.Size = new System.Drawing.Size(35, 35);
             this.BtnPosiRight.TabIndex = 4;
             this.BtnPosiRight.Text = "→";
+            this.TT_StartStop.SetToolTip(this.BtnPosiRight, "Move Picture right by given px");
             this.BtnPosiRight.UseVisualStyleBackColor = true;
             this.BtnPosiRight.Click += new System.EventHandler(this.BtnPosiRight_Click);
             // 
@@ -159,6 +167,7 @@
             this.BtnPosiUp.Size = new System.Drawing.Size(35, 35);
             this.BtnPosiUp.TabIndex = 5;
             this.BtnPosiUp.Text = "↑";
+            this.TT_StartStop.SetToolTip(this.BtnPosiUp, "Move Picture up by given px");
             this.BtnPosiUp.UseVisualStyleBackColor = true;
             this.BtnPosiUp.Click += new System.EventHandler(this.BtnPosiUp_Click);
             // 
@@ -173,6 +182,7 @@
             this.TextBox_PosiSnap.TabIndex = 6;
             this.TextBox_PosiSnap.Text = "1";
             this.TextBox_PosiSnap.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TT_StartStop.SetToolTip(this.TextBox_PosiSnap, "Set snapping px for Picture adjustment (useful on multiple screens)");
             this.TextBox_PosiSnap.TextChanged += new System.EventHandler(this.TextBox_PosiSnap_TextChanged);
             this.TextBox_PosiSnap.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_PosiSnap_KeyDown);
             // 
@@ -200,6 +210,7 @@
             this.Label_Reso.Size = new System.Drawing.Size(236, 20);
             this.Label_Reso.TabIndex = 8;
             this.Label_Reso.Text = "Inherit resolution from screen #: ";
+            this.TT_StartStop.SetToolTip(this.Label_Reso, "Set target Picture resolution from screen number (on multiple screens)");
             // 
             // Text_Box_PaddingH
             // 
@@ -225,6 +236,7 @@
             this.Label_Padding.Size = new System.Drawing.Size(101, 20);
             this.Label_Padding.TabIndex = 10;
             this.Label_Padding.Text = "Padding (px):";
+            this.TT_StartStop.SetToolTip(this.Label_Padding, "Set Picture padding if the (red) form background is exposed (default: 1px h/w)");
             // 
             // Text_Box_PaddingW
             // 
@@ -276,6 +288,7 @@
             this.BtnSettings.TabIndex = 14;
             this.BtnSettings.TabStop = false;
             this.BtnSettings.Text = "⛭";
+            this.TT_StartStop.SetToolTip(this.BtnSettings, "Settings");
             this.BtnSettings.UseVisualStyleBackColor = false;
             // 
             // pbox_prev
@@ -292,6 +305,7 @@
             this.pbox_prev.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbox_prev.TabIndex = 16;
             this.pbox_prev.TabStop = false;
+            this.TT_StartStop.SetToolTip(this.pbox_prev, "Click to set Picture");
             this.pbox_prev.Click += new System.EventHandler(this.pbox_prev_Click);
             // 
             // UI
@@ -348,6 +362,7 @@
         private System.Windows.Forms.Label Label_W;
         private System.Windows.Forms.Button BtnSettings;
         private System.Windows.Forms.PictureBox pbox_prev;
+        private System.Windows.Forms.ToolTip TT_StartStop;
     }
 }
 
