@@ -63,7 +63,7 @@ namespace GifWaller
 
         private void show()
         {
-            if (!string.IsNullOrEmpty(File)) pbox_prev.Image = Image.FromFile(File);
+            if (!string.IsNullOrEmpty(SET.File)) pbox_prev.Image = Image.FromFile(SET.File);
             pbox_prev.Show();
 
             Show();
@@ -104,28 +104,28 @@ namespace GifWaller
 
         private void BtnPosiUp_Click(object sender, EventArgs e)
         {
-            if (Running) Waller.SetDesktopLocation(CurrPosiX, CurrPosiY -= Snapf);
+            if (Running) Waller.SetDesktopLocation(SET.CurrPosiX, SET.CurrPosiY -= SET.Snapf);
 
             ReDrawDesktop();
         }
 
         private void BtnPosiLeft_Click(object sender, EventArgs e)
         {
-            if (Running) Waller.SetDesktopLocation(CurrPosiX -= Snapf, CurrPosiY);
+            if (Running) Waller.SetDesktopLocation(SET.CurrPosiX -= SET.Snapf, SET.CurrPosiY);
 
             ReDrawDesktop();
         }
 
         private void BtnPosiRight_Click(object sender, EventArgs e)
         {
-            if (Running) Waller.SetDesktopLocation(CurrPosiX += Snapf, CurrPosiY);
+            if (Running) Waller.SetDesktopLocation(SET.CurrPosiX += SET.Snapf, SET.CurrPosiY);
 
             ReDrawDesktop();
         }
 
         private void BtnPosiDown_Click(object sender, EventArgs e)
         {
-            if (Running) Waller.SetDesktopLocation(CurrPosiX, CurrPosiY += Snapf);
+            if (Running) Waller.SetDesktopLocation(SET.CurrPosiX, SET.CurrPosiY += SET.Snapf);
 
             ReDrawDesktop();
         }
@@ -144,12 +144,12 @@ namespace GifWaller
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (byte.TryParse(TextBox_PosiSnap.Text, out Snapf)) { }
+                if (byte.TryParse(TextBox_PosiSnap.Text, out SET.Snapf)) { }
 
                 else
                 {
                     TextBox_PosiSnap.Text = "1";
-                    Snapf = 1;
+                    SET.Snapf = 1;
                 }
 
                 TextBox_PosiSnap.BackColor = Color.GhostWhite;
@@ -171,7 +171,7 @@ namespace GifWaller
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (byte.TryParse(TextBox_ScrID.Text, out ScrID) && ScrID > 0 && ScrID <= Screen.AllScreens.Length)
+                if (byte.TryParse(TextBox_ScrID.Text, out SET.ScrID) && SET.ScrID > 0 && SET.ScrID <= Screen.AllScreens.Length)
                 {
                     Restart();
                 }
@@ -179,7 +179,7 @@ namespace GifWaller
                 else
                 {
                     TextBox_ScrID.Text = "1";
-                    ScrID = 1;
+                    SET.ScrID = 1;
 
                     Restart();
                 }
@@ -198,7 +198,7 @@ namespace GifWaller
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (byte.TryParse(Text_Box_PaddingH.Text, out PadH))
+                if (byte.TryParse(Text_Box_PaddingH.Text, out SET.PadH))
                 {
                     Restart();
                 }
@@ -206,7 +206,7 @@ namespace GifWaller
                 else
                 {
                     Text_Box_PaddingH.Text = "1";
-                    PadH = 1;
+                    SET.PadH = 1;
 
                     Restart();
                 }
@@ -224,7 +224,7 @@ namespace GifWaller
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (byte.TryParse(Text_Box_PaddingW.Text, out PadW))
+                if (byte.TryParse(Text_Box_PaddingW.Text, out SET.PadW))
                 {
                     Restart();
                 }
@@ -232,7 +232,7 @@ namespace GifWaller
                 else
                 {
                     Text_Box_PaddingW.Text = "1";
-                    PadW = 1;
+                    SET.PadW = 1;
 
                     Restart();
                 }
@@ -245,9 +245,9 @@ namespace GifWaller
         {
             if (Receive_File())
             {
-                pbox_prev.Image = Image.FromFile(File);
+                pbox_prev.Image = Image.FromFile(SET.File);
 
-                if (Running) PBox.Image = Image.FromFile(File);
+                if (Running) PBox.Image = Image.FromFile(SET.File);
             }
         }
 

@@ -5,7 +5,7 @@ namespace GifWaller
 {
     public partial class UI
     {
-        bool Running = false;
+        internal static bool Running = false;
 
         Settings Setting = new Settings();
         private Form Waller;
@@ -25,6 +25,8 @@ namespace GifWaller
 
 
         /*          SETTINGS            */
+        internal struct SET
+        {
         //image posi
         internal static int CurrPosiX = 0;
         internal static int CurrPosiY = 0;
@@ -42,13 +44,14 @@ namespace GifWaller
 
         //gif path
         internal static string File = string.Empty;
+    }   
         /*          SETTINGS            */
 
         private bool Receive_File()
         {
             if (FileDialog.ShowDialog() == DialogResult.OK)
             {
-                File = FileDialog.FileName;
+                SET.File = FileDialog.FileName;
 
                 Activate();
 
@@ -64,7 +67,7 @@ namespace GifWaller
 
         private bool Start()
         {
-            if (string.IsNullOrEmpty(File))
+            if (string.IsNullOrEmpty(SET.File))
                 if (!Receive_File()) return false;
 
             if (!Running)
@@ -73,22 +76,22 @@ namespace GifWaller
                 {
                     FormBorderStyle = FormBorderStyle.None,
                     StartPosition = FormStartPosition.Manual,            //0 = big; 1 = small.
-                    Location = new Point(CurrPosiX, CurrPosiY),
-                    Size = new Size(Screen.AllScreens[ScrID - 1].WorkingArea.Size.Width, Screen.AllScreens[ScrID - 1].WorkingArea.Size.Height)
+                    Location = new Point(SET.CurrPosiX, SET.CurrPosiY),
+                    Size = new Size(Screen.AllScreens[SET.ScrID - 1].WorkingArea.Size.Width, Screen.AllScreens[SET.ScrID - 1].WorkingArea.Size.Height)
                 };
 
                 PBox = new PictureBox
                 {
-                    Image = Image.FromFile(File),
+                    Image = Image.FromFile(SET.File),
                     BorderStyle = BorderStyle.None,
                     Location = new Point(0, 0),
                     Padding = new Padding(0),
                     BackColor = Color.Red,
-                    Size = new Size(Screen.AllScreens[ScrID - 1].WorkingArea.Size.Width + PadW, Screen.AllScreens[ScrID - 1].WorkingArea.Size.Height + PadH),
+                    Size = new Size(Screen.AllScreens[SET.ScrID - 1].WorkingArea.Size.Width + SET.PadW, Screen.AllScreens[SET.ScrID - 1].WorkingArea.Size.Height + SET.PadH),
                     SizeMode = PictureBoxSizeMode.StretchImage,
                 };
 
-                pbox_prev.Image = Image.FromFile(File);
+                pbox_prev.Image = Image.FromFile(SET.File);
 
                 Running = true;
 
@@ -116,7 +119,7 @@ namespace GifWaller
             }
         }
 
-        private void Restart()
+        internal void Restart()
         {
             if (Running)
             {
