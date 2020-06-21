@@ -66,7 +66,6 @@ namespace GifWaller
         private void BtnDefaults_Click(object sender, EventArgs e)
         {
 
-            using(GifWaller.UI.)
         }
 
         private void Link_Author_Sayan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
