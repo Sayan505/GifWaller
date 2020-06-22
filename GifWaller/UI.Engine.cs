@@ -180,6 +180,16 @@ namespace GifWaller
             Stop();
         }
 
+        private void Save(object sender, EventArgs e)
+        {
+            ////////////////////////////////////////////////////////
+        }
+
+        private void Load(object sender, EventArgs e)
+        {
+            ////////////////////////////////////////////////////////
+        }
+
         private void ReDrawDesktop()
         {
             WINAPI.SendMessage(Engine.progman, 0x0034, 4, 0);   //re-draw the desktop
