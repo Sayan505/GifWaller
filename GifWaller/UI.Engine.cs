@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace GifWaller
@@ -92,6 +93,11 @@ namespace GifWaller
             if (string.IsNullOrEmpty(SET.File))
                 if (!Receive_File()) return false;
 
+            if (!FileDialog.CheckFileExists)
+            {
+                return false;
+            }
+
             if (!Running)
             {
                 Waller = new Form
@@ -180,12 +186,21 @@ namespace GifWaller
             Stop();
         }
 
-        private void Save(object sender, EventArgs e)
+        private void SETSave(object sender, EventArgs e)
         {
-            ////////////////////////////////////////////////////////
+            using(BinaryWriter bw = new BinaryWriter(File.Open("settings", FileMode.Create)))
+            {
+                bw.Write(SET.CurrPosiX);
+                bw.Write(SET.CurrPosiY);
+                bw.Write(SET.File);
+                bw.Write(SET.PadH);
+                bw.Write(SET.PadW);
+                bw.Write(SET.ScrID);
+                bw.Write(SET.Snapf);
+            }
         }
 
-        private void Load(object sender, EventArgs e)
+        private void SETLoad(object sender, EventArgs e)
         {
             ////////////////////////////////////////////////////////
         }

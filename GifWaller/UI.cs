@@ -15,8 +15,8 @@ namespace GifWaller
             HTCAPTION.MouseDown += new MouseEventHandler(Drag_Move);
 
             Setting.BtnDefaults.Click += new EventHandler(SETDefault);
-            Setting.BtnSave.Click += new EventHandler(Save);
-            Setting.BtnLoad.Click += new EventHandler(Load);
+            Setting.BtnSave.Click += new EventHandler(SETSave);
+            Setting.BtnLoad.Click += new EventHandler(SETLoad);
         }
 
         private void Drag_Move(object sender, MouseEventArgs e)
