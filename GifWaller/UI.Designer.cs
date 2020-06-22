@@ -126,7 +126,7 @@
             this.BtnPosiLeft.Size = new System.Drawing.Size(35, 35);
             this.BtnPosiLeft.TabIndex = 2;
             this.BtnPosiLeft.Text = "←";
-            this.TT.SetToolTip(this.BtnPosiLeft, "Move Picture left by given px");
+            this.TT.SetToolTip(this.BtnPosiLeft, "Move Picture LEFT by given px");
             this.BtnPosiLeft.UseVisualStyleBackColor = true;
             this.BtnPosiLeft.Click += new System.EventHandler(this.BtnPosiLeft_Click);
             // 
@@ -140,7 +140,7 @@
             this.BtnPosiDown.Size = new System.Drawing.Size(35, 35);
             this.BtnPosiDown.TabIndex = 3;
             this.BtnPosiDown.Text = "↓";
-            this.TT.SetToolTip(this.BtnPosiDown, "Move Picture down by given px");
+            this.TT.SetToolTip(this.BtnPosiDown, "Move Picture DOWN by given px");
             this.BtnPosiDown.UseVisualStyleBackColor = true;
             this.BtnPosiDown.Click += new System.EventHandler(this.BtnPosiDown_Click);
             // 
@@ -154,7 +154,7 @@
             this.BtnPosiRight.Size = new System.Drawing.Size(35, 35);
             this.BtnPosiRight.TabIndex = 4;
             this.BtnPosiRight.Text = "→";
-            this.TT.SetToolTip(this.BtnPosiRight, "Move Picture right by given px");
+            this.TT.SetToolTip(this.BtnPosiRight, "Move Picture RIGHT by given px");
             this.BtnPosiRight.UseVisualStyleBackColor = true;
             this.BtnPosiRight.Click += new System.EventHandler(this.BtnPosiRight_Click);
             // 
@@ -168,7 +168,7 @@
             this.BtnPosiUp.Size = new System.Drawing.Size(35, 35);
             this.BtnPosiUp.TabIndex = 5;
             this.BtnPosiUp.Text = "↑";
-            this.TT.SetToolTip(this.BtnPosiUp, "Move Picture up by given px");
+            this.TT.SetToolTip(this.BtnPosiUp, "Move Picture UP by given px");
             this.BtnPosiUp.UseVisualStyleBackColor = true;
             this.BtnPosiUp.Click += new System.EventHandler(this.BtnPosiUp_Click);
             // 
