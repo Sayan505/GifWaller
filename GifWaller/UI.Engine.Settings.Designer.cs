@@ -93,7 +93,6 @@
             this.BtnDefaults.Text = "Defaults";
             this.BtnDefaults.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnDefaults.UseVisualStyleBackColor = false;
-            this.BtnDefaults.Click += new System.EventHandler(this.BtnDefaults_Click);
             // 
             // BtnX
             // 
@@ -148,11 +147,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button BtnLoad;
-        private System.Windows.Forms.Button BtnSave;
+        internal System.Windows.Forms.Button BtnLoad;
+        internal System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Panel HTCAPTION_Settings;
         private System.Windows.Forms.Button BtnX;
-        private System.Windows.Forms.Button BtnDefaults;
+        internal System.Windows.Forms.Button BtnDefaults;
         private System.Windows.Forms.LinkLabel Link_Author_Sayan;
     }
 }

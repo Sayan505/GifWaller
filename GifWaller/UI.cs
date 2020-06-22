@@ -13,6 +13,7 @@ namespace GifWaller
             //custom events
             FormClosing += new FormClosingEventHandler(EXIT);
             HTCAPTION.MouseDown += new MouseEventHandler(Drag_Move);
+            Setting.BtnDefaults.Click += new EventHandler(SETDefault);
         }
 
         private void Drag_Move(object sender, MouseEventArgs e)
@@ -79,24 +80,11 @@ namespace GifWaller
         {
             if (!Running)
             {
-                if (Start())
-                {
-                    PowerBtn.Text = "✔";                    //haha unicode emoji go brrrr
-                    PowerBtn.ForeColor = Color.SpringGreen;
-
-                    Activate();
-
-                    return;
-                }
+                if (Start()) return;
             }
             if (Running)
             {
                 Stop();
-
-                PowerBtn.Text = "❌";
-                PowerBtn.ForeColor = Color.Crimson;
-
-                Activate();
 
                 return;
             }
