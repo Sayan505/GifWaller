@@ -243,5 +243,10 @@ namespace GifWaller
         {
             Setting.ShowDialog();
         }
+
+        private void BtnReDraw_Click(object sender, EventArgs e)
+        {
+            ReDrawDesktop();
+        }
     }
 }

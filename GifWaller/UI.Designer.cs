@@ -48,6 +48,7 @@
             this.BtnSettings = new System.Windows.Forms.Button();
             this.pbox_prev = new System.Windows.Forms.PictureBox();
             this.TT = new System.Windows.Forms.ToolTip(this.components);
+            this.BtnReDraw = new System.Windows.Forms.Button();
             this.HTCAPTION.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbox_prev)).BeginInit();
             this.SuspendLayout();
@@ -309,12 +310,29 @@
             this.TT.SetToolTip(this.pbox_prev, "Click to set Picture");
             this.pbox_prev.Click += new System.EventHandler(this.pbox_prev_Click);
             // 
+            // BtnReDraw
+            // 
+            this.BtnReDraw.FlatAppearance.BorderSize = 0;
+            this.BtnReDraw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnReDraw.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReDraw.ForeColor = System.Drawing.Color.OrangeRed;
+            this.BtnReDraw.Location = new System.Drawing.Point(93, 436);
+            this.BtnReDraw.Name = "BtnReDraw";
+            this.BtnReDraw.Size = new System.Drawing.Size(35, 35);
+            this.BtnReDraw.TabIndex = 17;
+            this.BtnReDraw.Text = "⟳";
+            this.BtnReDraw.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.TT.SetToolTip(this.BtnReDraw, "Re-draw the Desktop");
+            this.BtnReDraw.UseVisualStyleBackColor = true;
+            this.BtnReDraw.Click += new System.EventHandler(this.BtnReDraw_Click);
+            // 
             // UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(640, 480);
+            this.Controls.Add(this.BtnReDraw);
             this.Controls.Add(this.pbox_prev);
             this.Controls.Add(this.BtnSettings);
             this.Controls.Add(this.Label_W);
@@ -364,6 +382,7 @@
         private System.Windows.Forms.Button BtnSettings;
         private System.Windows.Forms.PictureBox pbox_prev;
         private System.Windows.Forms.ToolTip TT;
+        private System.Windows.Forms.Button BtnReDraw;
     }
 }
 

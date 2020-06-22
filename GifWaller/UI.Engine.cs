@@ -177,6 +177,8 @@ namespace GifWaller
             TextBox_ScrID.Text     = DefSET.ScrID.ToString();   TextBox_ScrID.BackColor     = Color.GhostWhite;
             TextBox_PosiSnap.Text  = DefSET.Snapf.ToString();   TextBox_PosiSnap.BackColor  = Color.GhostWhite;
 
+            pbox_prev.Image = null;
+
             Stop();
         }
 
