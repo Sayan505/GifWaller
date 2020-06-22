@@ -49,7 +49,6 @@
             this.BtnLoad.TabStop = false;
             this.BtnLoad.Text = "Save";
             this.BtnLoad.UseVisualStyleBackColor = false;
-            this.BtnLoad.Click += new System.EventHandler(this.BtnLoad_Click);
             // 
             // BtnSave
             // 
@@ -63,7 +62,6 @@
             this.BtnSave.TabStop = false;
             this.BtnSave.Text = "Load";
             this.BtnSave.UseVisualStyleBackColor = false;
-            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // HTCAPTION_Settings
             // 

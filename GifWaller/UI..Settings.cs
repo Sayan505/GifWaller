@@ -28,17 +28,6 @@ namespace GifWaller
             Close();
         }
 
-        private void BtnLoad_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnSave_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void Link_Author_Sayan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/Sayan505/GifWaller");

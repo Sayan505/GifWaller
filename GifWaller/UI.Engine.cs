@@ -24,7 +24,6 @@ namespace GifWaller
             RestoreDirectory = false
         };
 
-        /*          DEFAULTS            */
         internal struct DefSET
         {
             //image posi
@@ -45,7 +44,6 @@ namespace GifWaller
             //gif path
             internal static string File = string.Empty;
         }
-        /*          DEFAULTS            */
 
 
         /*          SETTINGS            */
