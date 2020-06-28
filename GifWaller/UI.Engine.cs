@@ -103,8 +103,9 @@ namespace GifWaller
             if (string.IsNullOrEmpty(SET.File))
                 if (!Receive_File()) return false;
 
-            if (!FileDialog.CheckFileExists)
+            if (!File.Exists(SET.File))
             {
+                SET.File = string.Empty;
                 return false;
             }
 
