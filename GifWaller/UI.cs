@@ -67,7 +67,7 @@ namespace GifWaller
 
         private void show()
         {
-            if (!string.IsNullOrEmpty(SET.File)) pbox_prev.Image = Image.FromFile(SET.File);
+            if (!string.IsNullOrEmpty(SET.File)) pbox_prev.Image = Img;
             pbox_prev.Show();
 
             Show();
@@ -236,9 +236,9 @@ namespace GifWaller
         {
             if (Receive_File())
             {
-                pbox_prev.Image = Image.FromFile(SET.File);
+                pbox_prev.Image = Img;
 
-                if (Running) PBox.Image = Image.FromFile(SET.File);
+                if (Running) PBox.Image = Img;
             }
         }
 

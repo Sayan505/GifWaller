@@ -10,8 +10,10 @@ namespace GifWaller
         internal static bool Running = false;
 
         Settings Setting = new Settings();
+
         private Form Waller;
         private PictureBox PBox;
+        private Image Img;
         private OpenFileDialog FileDialog = new OpenFileDialog()
         {
             InitialDirectory = @"C:\",
@@ -76,6 +78,14 @@ namespace GifWaller
             {
                 SET.File = FileDialog.FileName;
 
+                using (var fs =new FileStream(SET.File, FileMode.Open))
+                {
+                    var ms = new MemoryStream();
+                    fs.CopyTo(ms);
+                    ms.Position = 0;
+                    Img = Image.FromStream(ms);
+                }
+
                 Activate();
 
                 return true;
@@ -110,7 +120,7 @@ namespace GifWaller
 
                 PBox = new PictureBox
                 {
-                    Image       = Image.FromFile(SET.File),
+                    Image       = Img,
                     BorderStyle = BorderStyle.None,
                     Location    = new Point(0, 0),
                     Padding     = new Padding(0),
@@ -119,7 +129,7 @@ namespace GifWaller
                     SizeMode    = PictureBoxSizeMode.StretchImage,
                 };
 
-                pbox_prev.Image = Image.FromFile(SET.File);
+                pbox_prev.Image = Img;
 
                 Running = true;
 
