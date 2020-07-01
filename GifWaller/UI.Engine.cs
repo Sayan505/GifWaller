@@ -225,16 +225,16 @@ namespace GifWaller
                 {
                     SET.CurrPosiX = br.ReadInt32();
                     SET.CurrPosiY = br.ReadInt32();
-                    SET.PadH = br.ReadByte();
-                    SET.PadW = br.ReadByte();
-                    SET.Snapf = br.ReadByte();
-                    SET.ScrID = br.ReadByte();
-                    SET.File = br.ReadString();
+                    SET.PadH      = br.ReadByte();
+                    SET.PadW      = br.ReadByte();
+                    SET.Snapf     = br.ReadByte();
+                    SET.ScrID     = br.ReadByte();
+                    SET.File      = br.ReadString();
 
                     Text_Box_PaddingH.Text = SET.PadH.ToString(); Text_Box_PaddingH.BackColor = Color.GhostWhite;
                     Text_Box_PaddingW.Text = SET.PadW.ToString(); Text_Box_PaddingW.BackColor = Color.GhostWhite;
-                    TextBox_ScrID.Text = SET.ScrID.ToString(); TextBox_ScrID.BackColor = Color.GhostWhite;
-                    TextBox_PosiSnap.Text = SET.Snapf.ToString(); TextBox_PosiSnap.BackColor = Color.GhostWhite;
+                    TextBox_ScrID.Text     = SET.ScrID.ToString(); TextBox_ScrID.BackColor    = Color.GhostWhite;
+                    TextBox_PosiSnap.Text  = SET.Snapf.ToString(); TextBox_PosiSnap.BackColor = Color.GhostWhite;
 
                     GetImg();
 

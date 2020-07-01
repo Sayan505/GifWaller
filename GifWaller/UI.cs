@@ -35,7 +35,7 @@ namespace GifWaller
 
             NotifyIcon notifyIcon = new NotifyIcon()
             {
-                Icon = SystemIcons.Application,
+                Icon    = SystemIcons.Application,
                 Visible = true,
             };
             notifyIcon.MouseDown += new MouseEventHandler(Tray_Handler);
