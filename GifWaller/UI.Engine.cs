@@ -79,13 +79,7 @@ namespace GifWaller
             {
                 SET.File = FileDialog.FileName;
 
-                using (var fs =new FileStream(SET.File, FileMode.Open))
-                {
-                    var ms = new MemoryStream();
-                    fs.CopyTo(ms);
-                    ms.Position = 0;
-                    Img = Image.FromStream(ms);
-                }
+                GetImg();
 
                 Activate();
 
@@ -96,6 +90,17 @@ namespace GifWaller
                 Activate();
 
                 return false;
+            }
+        }
+
+        private void GetImg()
+        {
+            using (var fs = new FileStream(SET.File, FileMode.Open))
+            {
+                var ms = new MemoryStream();
+                fs.CopyTo(ms);
+                ms.Position = 0;
+                Img = Image.FromStream(ms);  //populate memory with the gif
             }
         }
 
@@ -231,7 +236,9 @@ namespace GifWaller
                     TextBox_ScrID.Text = SET.ScrID.ToString(); TextBox_ScrID.BackColor = Color.GhostWhite;
                     TextBox_PosiSnap.Text = SET.Snapf.ToString(); TextBox_PosiSnap.BackColor = Color.GhostWhite;
 
-                    //pbox_prev.Image =
+                    GetImg();
+
+                    pbox_prev.Image = Img;
 
                     Stop();
                 }
