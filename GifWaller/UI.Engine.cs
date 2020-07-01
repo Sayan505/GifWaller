@@ -52,24 +52,24 @@ namespace GifWaller
         /*          SETTINGS            */
         internal struct SET
         {
-        //image posi
-        internal static int CurrPosiX = 0;
-        internal static int CurrPosiY = 0;
+            //image posi
+            internal static int CurrPosiX = 0;
+            internal static int CurrPosiY = 0;
 
-        //image padding (generally, 1px required)
-        //A red outline (form background) might show up on weird resolutions. That's when you need to configure padding.
-        internal static byte PadH = 1;
-        internal static byte PadW = 1;
+            //image padding (generally, 1px required)
+            //A red outline (form background) might show up on weird resolutions. That's when you need to configure padding.
+            internal static byte PadH = 1;
+            internal static byte PadW = 1;
 
-        //image move snapping
-        internal static byte Snapf = 1;
+            //image move snapping
+            internal static byte Snapf = 1;
 
-        //image reso
-        internal static byte ScrID = 1;
+            //image reso
+            internal static byte ScrID = 1;
 
-        //gif path
-        internal static string File = string.Empty;
-    }   
+            //gif path
+            internal static string File = string.Empty;
+        }
         /*          SETTINGS            */
 
         private bool Receive_File()
@@ -213,7 +213,29 @@ namespace GifWaller
 
         private void SETLoad(object sender, EventArgs e)
         {
-            ////////////////////////////////////////////////////////
+            if (File.Exists("settings"))
+            {
+                using (BinaryReader br = new BinaryReader(new FileStream("settings", FileMode.Open)))
+                {
+                    SET.CurrPosiX = br.ReadInt32();
+                    SET.CurrPosiY = br.ReadInt32();
+                    SET.PadH = br.ReadByte();
+                    SET.PadW = br.ReadByte();
+                    SET.Snapf = br.ReadByte();
+                    SET.ScrID = br.ReadByte();
+                    SET.File = br.ReadString();
+
+                    Text_Box_PaddingH.Text = SET.PadH.ToString(); Text_Box_PaddingH.BackColor = Color.GhostWhite;
+                    Text_Box_PaddingW.Text = SET.PadW.ToString(); Text_Box_PaddingW.BackColor = Color.GhostWhite;
+                    TextBox_ScrID.Text = SET.ScrID.ToString(); TextBox_ScrID.BackColor = Color.GhostWhite;
+                    TextBox_PosiSnap.Text = SET.Snapf.ToString(); TextBox_PosiSnap.BackColor = Color.GhostWhite;
+
+                    pbox_prev.Invalidate();
+
+                    Stop();
+                }
+            }
+            else Setting.BtnDefaults.PerformClick();    //revert to defaults
         }
 
         private void ReDrawDesktop()
