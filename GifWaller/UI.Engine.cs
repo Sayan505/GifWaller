@@ -95,12 +95,20 @@ namespace GifWaller
 
         private void GetImg()
         {
-            using (var fs = new FileStream(SET.File, FileMode.Open))
+            if (File.Exists(SET.File))
             {
-                var ms = new MemoryStream();
-                fs.CopyTo(ms);
-                ms.Position = 0;
-                Img = Image.FromStream(ms);  //populate memory with the gif
+                using (var fs = new FileStream(SET.File, FileMode.Open))
+                {
+                    var ms = new MemoryStream();
+                    fs.CopyTo(ms);
+                    ms.Position = 0;
+                    Img = Image.FromStream(ms);  //populate memory with the gif
+                }
+            }
+            else
+            {
+                Img      = null;
+                SET.File = null;
             }
         }
 
@@ -229,7 +237,7 @@ namespace GifWaller
                     SET.PadW      = br.ReadByte();
                     SET.Snapf     = br.ReadByte();
                     SET.ScrID     = br.ReadByte();
-                    SET.File      = br.ReadString();
+                    SET.File = br.ReadString();
 
                     Text_Box_PaddingH.Text = SET.PadH.ToString(); Text_Box_PaddingH.BackColor = Color.GhostWhite;
                     Text_Box_PaddingW.Text = SET.PadW.ToString(); Text_Box_PaddingW.BackColor = Color.GhostWhite;
