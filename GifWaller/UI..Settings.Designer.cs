@@ -47,7 +47,7 @@
             this.BtnLoad.Size = new System.Drawing.Size(75, 23);
             this.BtnLoad.TabIndex = 0;
             this.BtnLoad.TabStop = false;
-            this.BtnLoad.Text = "Save";
+            this.BtnLoad.Text = "Load";
             this.BtnLoad.UseVisualStyleBackColor = false;
             // 
             // BtnSave
@@ -60,7 +60,7 @@
             this.BtnSave.Size = new System.Drawing.Size(75, 23);
             this.BtnSave.TabIndex = 1;
             this.BtnSave.TabStop = false;
-            this.BtnSave.Text = "Load";
+            this.BtnSave.Text = "Save";
             this.BtnSave.UseVisualStyleBackColor = false;
             // 
             // HTCAPTION_Settings

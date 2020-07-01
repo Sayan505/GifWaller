@@ -11,12 +11,12 @@ namespace GifWaller
             InitializeComponent();
 
             //custom events
-            FormClosing += new FormClosingEventHandler(EXIT);
+            FormClosing         += new FormClosingEventHandler(EXIT);
             HTCAPTION.MouseDown += new MouseEventHandler(Drag_Move);
 
             Setting.BtnDefaults.Click += new EventHandler(SETDefault);
-            Setting.BtnSave.Click += new EventHandler(SETSave);
-            Setting.BtnLoad.Click += new EventHandler(SETLoad);
+            Setting.BtnSave.Click     += new EventHandler(SETSave);
+            Setting.BtnLoad.Click     += new EventHandler(SETLoad);
         }
 
         private void Drag_Move(object sender, MouseEventArgs e)

@@ -8,6 +8,7 @@ namespace GifWaller
     public partial class UI
     {
         internal static bool Running = false;
+        internal static string FileName = "settings";
 
         Settings Setting = new Settings();
 
@@ -199,15 +200,15 @@ namespace GifWaller
 
         private void SETSave(object sender, EventArgs e)
         {
-            using(BinaryWriter bw = new BinaryWriter(File.Open("settings", FileMode.Create)))
+            using (BinaryWriter bw = new BinaryWriter(File.Open(FileName, FileMode.Create)))
             {
                 bw.Write(SET.CurrPosiX);
                 bw.Write(SET.CurrPosiY);
-                bw.Write(SET.File);
                 bw.Write(SET.PadH);
                 bw.Write(SET.PadW);
-                bw.Write(SET.ScrID);
                 bw.Write(SET.Snapf);
+                bw.Write(SET.ScrID);
+                bw.Write(SET.File);
             }
         }
 
@@ -215,27 +216,27 @@ namespace GifWaller
         {
             if (File.Exists("settings"))
             {
-                using (BinaryReader br = new BinaryReader(new FileStream("settings", FileMode.Open)))
+                using (BinaryReader br = new BinaryReader(File.Open(FileName, FileMode.Open)))
                 {
                     SET.CurrPosiX = br.ReadInt32();
                     SET.CurrPosiY = br.ReadInt32();
-                    SET.PadH      = br.ReadByte();
-                    SET.PadW      = br.ReadByte();
-                    SET.Snapf     = br.ReadByte();
-                    SET.ScrID     = br.ReadByte();
-                    SET.File      = br.ReadString();
+                    SET.PadH = br.ReadByte();
+                    SET.PadW = br.ReadByte();
+                    SET.Snapf = br.ReadByte();
+                    SET.ScrID = br.ReadByte();
+                    SET.File = br.ReadString();
 
                     Text_Box_PaddingH.Text = SET.PadH.ToString(); Text_Box_PaddingH.BackColor = Color.GhostWhite;
                     Text_Box_PaddingW.Text = SET.PadW.ToString(); Text_Box_PaddingW.BackColor = Color.GhostWhite;
-                    TextBox_ScrID.Text     = SET.ScrID.ToString(); TextBox_ScrID.BackColor    = Color.GhostWhite;
-                    TextBox_PosiSnap.Text  = SET.Snapf.ToString(); TextBox_PosiSnap.BackColor = Color.GhostWhite;
+                    TextBox_ScrID.Text = SET.ScrID.ToString(); TextBox_ScrID.BackColor = Color.GhostWhite;
+                    TextBox_PosiSnap.Text = SET.Snapf.ToString(); TextBox_PosiSnap.BackColor = Color.GhostWhite;
 
-                    pbox_prev.Invalidate();
+                    //pbox_prev.Image =
 
                     Stop();
                 }
             }
-            else Setting.BtnDefaults.PerformClick();            //revert to defaults
+            else Setting.BtnDefaults.PerformClick();    //else load defaults
         }
 
         private void ReDrawDesktop()
