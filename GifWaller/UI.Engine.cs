@@ -15,6 +15,7 @@ namespace GifWaller
         private Form Waller;
         private PictureBox PBox;
         private Image Img;
+
         private OpenFileDialog FileDialog = new OpenFileDialog()
         {
             InitialDirectory = @"C:\",
@@ -35,7 +36,7 @@ namespace GifWaller
             internal static int CurrPosiY = 0;
 
             //image padding (generally, 1px required)
-            //A red outline (form background) might show up on weird resolutions. That's when you need to configure padding.
+            //A red outline (form background) might show up on weird image/screen resolutions. That's when you need to configure padding.
             internal static byte PadH = 1;
             internal static byte PadW = 1;
 

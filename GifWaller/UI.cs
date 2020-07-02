@@ -39,6 +39,8 @@ namespace GifWaller
                 Visible = true,
             };
             notifyIcon.MouseDown += new MouseEventHandler(Tray_Handler);
+
+            Setting.BtnLoad.PerformClick(); //load last settings if any
         }
 
         private void Tray_Handler(object sender, MouseEventArgs e)
