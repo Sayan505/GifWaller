@@ -238,7 +238,7 @@ namespace GifWaller
                     SET.PadW      = br.ReadByte();
                     SET.Snapf     = br.ReadByte();
                     SET.ScrID     = br.ReadByte();
-                    SET.File = br.ReadString();
+                    SET.File      = br.ReadString();
 
                     Text_Box_PaddingH.Text = SET.PadH.ToString(); Text_Box_PaddingH.BackColor = Color.GhostWhite;
                     Text_Box_PaddingW.Text = SET.PadW.ToString(); Text_Box_PaddingW.BackColor = Color.GhostWhite;
@@ -252,7 +252,7 @@ namespace GifWaller
                     Stop();
                 }
             }
-            else Setting.BtnDefaults.PerformClick();    //else load defaults
+            else SETDefault(this, EventArgs.Empty);     //else load defaults
         }
 
         private void ReDrawDesktop()

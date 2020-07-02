@@ -40,21 +40,15 @@ namespace GifWaller
             };
             notifyIcon.MouseDown += new MouseEventHandler(Tray_Handler);
 
-            Setting.BtnLoad.PerformClick(); //load last settings if any
+            SETLoad(this, EventArgs.Empty); //load last settings if any
         }
 
         private void Tray_Handler(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                if (Visible)
-                {
-                    hide();
-                }
-                else
-                {
-                    show();
-                }
+                if (Visible) hide();
+                else show();
 
             }
         }
