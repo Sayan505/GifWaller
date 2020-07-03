@@ -36,7 +36,23 @@ namespace GifWaller
 
             SETLoad(this, EventArgs.Empty); //load last settings if any
 
-            if (File.Exists(SET.File)) Start();
+            if (File.Exists(SET.File))
+            {
+                BeginInvoke(new MethodInvoker(delegate
+                {
+                    hide(); Opacity = 0.95D;
+                }));
+
+                Start();
+            }
+            else
+            {
+                BeginInvoke(new MethodInvoker(delegate
+                {
+                     Opacity = 0.95D;
+                }));
+
+            }
 
             NotifyIcon notifyIcon = new NotifyIcon()
             {

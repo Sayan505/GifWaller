@@ -353,7 +353,7 @@ namespace GifWaller
             this.Controls.Add(this.HTCAPTION);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UI";
-            this.Opacity = 0.95D;
+            this.Opacity = 0D;
             this.Text = "GifWaller";
             this.Load += new System.EventHandler(this.UI_Load);
             this.HTCAPTION.ResumeLayout(false);
