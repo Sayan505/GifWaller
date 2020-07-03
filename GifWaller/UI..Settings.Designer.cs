@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.BtnLoad = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.HTCAPTION_Settings = new System.Windows.Forms.Panel();
             this.BtnDefaults = new System.Windows.Forms.Button();
             this.BtnX = new System.Windows.Forms.Button();
             this.Link_Author_Sayan = new System.Windows.Forms.LinkLabel();
+            this.TTSettings = new System.Windows.Forms.ToolTip(this.components);
             this.HTCAPTION_Settings.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +50,7 @@
             this.BtnLoad.TabIndex = 0;
             this.BtnLoad.TabStop = false;
             this.BtnLoad.Text = "Load";
+            this.TTSettings.SetToolTip(this.BtnLoad, "Load settings from \"settings\" file");
             this.BtnLoad.UseVisualStyleBackColor = false;
             // 
             // BtnSave
@@ -61,6 +64,7 @@
             this.BtnSave.TabIndex = 1;
             this.BtnSave.TabStop = false;
             this.BtnSave.Text = "Save";
+            this.TTSettings.SetToolTip(this.BtnSave, "Save to \"settings\" file");
             this.BtnSave.UseVisualStyleBackColor = false;
             // 
             // HTCAPTION_Settings
@@ -90,6 +94,7 @@
             this.BtnDefaults.TabStop = false;
             this.BtnDefaults.Text = "Defaults";
             this.BtnDefaults.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.TTSettings.SetToolTip(this.BtnDefaults, "Restore default settings");
             this.BtnDefaults.UseVisualStyleBackColor = false;
             // 
             // BtnX
@@ -151,5 +156,6 @@
         private System.Windows.Forms.Button BtnX;
         internal System.Windows.Forms.Button BtnDefaults;
         private System.Windows.Forms.LinkLabel Link_Author_Sayan;
+        private System.Windows.Forms.ToolTip TTSettings;
     }
 }
