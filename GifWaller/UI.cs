@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace GifWaller
@@ -9,6 +10,10 @@ namespace GifWaller
         public UI()
         {
             InitializeComponent();
+
+            SETLoad(this, EventArgs.Empty); //load last settings if any
+
+            if (File.Exists(SET.File)) Start();
 
             //custom events
             FormClosing         += new FormClosingEventHandler(EXIT);
@@ -33,14 +38,14 @@ namespace GifWaller
         {
             ReDrawDesktop();
 
+            if (File.Exists(SET.File)) Start();
+
             NotifyIcon notifyIcon = new NotifyIcon()
             {
-                Icon    = SystemIcons.Application,
+                Icon = SystemIcons.Application,
                 Visible = true,
             };
             notifyIcon.MouseDown += new MouseEventHandler(Tray_Handler);
-
-            SETLoad(this, EventArgs.Empty); //load last settings if any
         }
 
         private void Tray_Handler(object sender, MouseEventArgs e)

@@ -307,7 +307,6 @@
             this.pbox_prev.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbox_prev.TabIndex = 16;
             this.pbox_prev.TabStop = false;
-            this.pbox_prev.Image = null;
             this.TT.SetToolTip(this.pbox_prev, "Click to set Picture");
             this.pbox_prev.Click += new System.EventHandler(this.pbox_prev_Click);
             // 

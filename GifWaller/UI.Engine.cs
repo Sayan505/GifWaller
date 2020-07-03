@@ -115,13 +115,13 @@ namespace GifWaller
 
         private bool Start()
         {
-            if (string.IsNullOrEmpty(SET.File))
-                if (!Receive_File()) return false;
-
             if (!File.Exists(SET.File))
             {
-                SET.File = string.Empty;
-                return false;
+                if (!Receive_File())
+                {
+                    SET.File = string.Empty;
+                    return false;
+                }
             }
 
             if (!Running)
