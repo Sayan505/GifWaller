@@ -1,4 +1,6 @@
-﻿namespace GifWaller
+﻿using System.Windows.Forms;
+
+namespace GifWaller
 {
     partial class UI
     {

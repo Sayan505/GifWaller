@@ -11,10 +11,6 @@ namespace GifWaller
         {
             InitializeComponent();
 
-            SETLoad(this, EventArgs.Empty); //load last settings if any
-
-            if (File.Exists(SET.File)) Start();
-
             //custom events
             FormClosing         += new FormClosingEventHandler(EXIT);
             HTCAPTION.MouseDown += new MouseEventHandler(Drag_Move);
@@ -38,9 +34,11 @@ namespace GifWaller
         {
             ReDrawDesktop();
 
+            SETLoad(this, EventArgs.Empty); //load last settings if any
+
             if (File.Exists(SET.File)) Start();
 
-            NotifyIcon notifyIcon = new NotifyIcon()
+             NotifyIcon notifyIcon = new NotifyIcon()
             {
                 Icon = SystemIcons.Application,
                 Visible = true,
@@ -68,7 +66,9 @@ namespace GifWaller
 
         private void show()
         {
-            if (!string.IsNullOrEmpty(SET.File)) pbox_prev.Image = Img;
+            if (File.Exists(SET.File)) pbox_prev.Image = Img;
+            else pbox_prev.Image = null;
+
             pbox_prev.Show();
 
             Show();
