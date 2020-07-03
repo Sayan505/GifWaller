@@ -1,2 +1,2 @@
 # GifWaller
-This application lets you set an **animated GIF** image of your choice as your Windows desktop **wallpaper**.
+This application lets you to set an **animated GIF** image of your choice as your Windows desktop **wallpaper**.
