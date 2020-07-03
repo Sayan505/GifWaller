@@ -38,10 +38,10 @@ namespace GifWaller
 
             if (File.Exists(SET.File)) Start();
 
-             NotifyIcon notifyIcon = new NotifyIcon()
+            NotifyIcon notifyIcon = new NotifyIcon()
             {
                 Icon = SystemIcons.Application,
-                Visible = true,
+                Visible = true
             };
             notifyIcon.MouseDown += new MouseEventHandler(Tray_Handler);
         }
